@@ -1,19 +1,20 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import  Header  from '../Components/Home/Header'
 import PersonProfile from '../Components/Home/Person'
-import  ProgressBar  from '../Components/Home/ProgressBar'
-import * as Progress from 'react-native-progress'
-import BottomTabs, { bottomTabIcons } from '../Components/Home/BottomTabs'
+import DashboardComponent from '../Components/Home/Dashboard'
+
 
 
 const HomeScreen = () => {
   return ( 
     <SafeAreaView style={styles.container}>
-        <Header/>
+    <Header/>
+    <ScrollView>
         <PersonProfile/>
-        <BottomTabs icons={bottomTabIcons}/>
-        </SafeAreaView>
+        <DashboardComponent />
+        </ScrollView>
+        </SafeAreaView>        
   )
 }
 
@@ -21,9 +22,10 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         flex: 1,
-        alignItems: 'center', // Center children horizontally
-        justifyContent: 'flex-start', // Align children to the top
+        alignItems: 'center',
+        justifyContent: "flex-start",
     },
+   
 })
 
 export default HomeScreen

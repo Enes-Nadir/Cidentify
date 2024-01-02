@@ -4,7 +4,7 @@ import {  } from 'react-native-web'
  
 const Header= () => {
   return (
-    <View style={StyleSheet.container}>
+    <View style={styles.container}>
      <TouchableOpacity>
       <Image 
         style={styles.logo}
@@ -17,19 +17,17 @@ const Header= () => {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         marginHorizontal: 20,
-    },
-
-    iconsContainer: {
-        flexDirection: 'row',
+        width: '100%', 
+        height: 100,
     },
 
     logo:{
-        width: 100,
-        height: 50,
+        width: 200,
+        height: 100,
         resizeMode: 'contain',
     },
 })

@@ -1,6 +1,12 @@
-import { View, Text, SafeAreaView } from "react-native";
-import HomeScreen from "./screens/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabNavigator from './navigation/BottomTabNavigator';
+import AppNavigator from './navigation/AppNavigator';
+
 
 export default function App() {
-  return  <HomeScreen />
+  return (
+    <NavigationContainer>
+          <BottomTabNavigator />
+    </NavigationContainer>
+  );
 }

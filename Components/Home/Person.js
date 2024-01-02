@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -9,17 +12,18 @@ const PersonProfile = () => {
       <View style={styles.userContainer}>
         <Image
           source={require('../../assets/Avatar.png')} 
-          style={styles.avatar}
+          style={styles.profileImage}
         />
 
         <View style={styles.userInfo}>
           <Text style={styles.userName}>John Doe</Text>
           <View style={styles.locationContainer}>
-            <Image source={require('../../assets/Location.png')} style={styles.locationIcon}/>
-            <Text style={styles.locationText}>New York</Text> 
-            <Text> /</Text> 
-            <Text style={styles.locationText}> USA</Text>
+           <Icon name="map-marker" size={20} color="#000" />
+           <Text style={styles.locationText}>New York</Text>
+           <Text style={styles.locationText}> / </Text> 
+           <Text style={styles.locationText}>USA</Text>
           </View>
+
         </View>
       </View>
     </View>
@@ -28,23 +32,25 @@ const PersonProfile = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff', // Background color for the entire screen
-    justifyContent: 'flex-start', // Align content to the top
-    marginLeft: 80,
-    width: 300,
+    justifyContent: "center", // Align content to the top
+    alignItems: 'center',
+    padding: 40,
+    marginLeft: 5,
+
   },
   userContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     width: screenWidth * 0.8, // Set width to 80% of screen width
     alignSelf: 'center', // Center the container horizontally
+    height: 100,
     padding: 16,
   },
-  avatar: {
-    width: 60,
-    height: 70,
-    borderRadius: 90, // Make it a circle
+  profileImage: {
+    width: 80,
+    height: 100,
+    borderRadius: 50,
   },
   userInfo: {
     marginLeft: 16,

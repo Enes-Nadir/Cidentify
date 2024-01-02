@@ -1,68 +1,72 @@
-import React, { useState } from "react"
-import { Text } from 'react-native'
-import { TouchableOpacity, View, Image, StyleSheet } from 'react-native';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Ionicons} from '@expo/vector-icons'
+import HomeScreen from '../../screens/HomeScreen';
+import CareerScreen from '../../screens/CareerScreen';
+import ProfileScreen from '../../screens/ProfileScreen';
 
 
 const Tab = createBottomTabNavigator();
 
-
-export const bottomTabIcons = [
-    {
-    name: 'Home',
-    active: require('../../assets/home1.png'),
-    pasive: require('../../assets/home.png')
-},
-{
-    name: 'Career',
-    active: require('../../assets/book1.png'),
-    passive: require('../../assets/book.png')
-},
-{
-    name: 'Messages',
-    active: require('../../assets/email1.png'),
-    passive: require('../../assets/email.png')
-},
-{
-    name: 'Profile',
-    active: require('../../assets/user1.png'),
-    passive: require('../../assets/user.png')
- },
-]
-
-const BottomTabs = ({ icons }) => {
-    const [activeTab, setActiveTab] = useState('Home')
-
-    const Icon = ({ icon }) => (
-        <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
-          <Image source={activeTab === icon.name ? icon.active : icon.passive} style={styles.icon} />
-        </TouchableOpacity>
-      );
-      
-    return(
-        <View style={styles.container}>
-            {icons.map((icon,index) => (
-                <Icon key={index} icon={icon} />
-            ))}
-        </View>
-    )
+function BottomTab() {
+  return (
+    <Tab.Navigator screenOptions={screenOpt} >
+      <Tab.Screen name="Home" 
+      component={HomeScreen}
+      options={{
+        tabBarIcon: ({focused})=> {
+          return <Ionicons name={"home-outline"}
+            size={40}
+          />
+        }
+      }}
+       />
+      <Tab.Screen name="Career" 
+      component={CareerScreen}
+      options={{
+        tabBarIcon: ({focused})=> {
+          return <Ionicons name={"book-outline"}
+            size={40}
+          />
+        }
+      }}
+       />
+      <Tab.Screen name="Messages" 
+      component={HomeScreen}
+      options={{
+        tabBarIcon: ({focused})=> {
+          return <Ionicons name={"mail-outline"}
+            size={40}
+          />
+        }
+      }}
+       />
+      <Tab.Screen name="Profile" 
+      component={ProfileScreen}
+      options={{
+        tabBarIcon: ({focused})=> {
+          return <Ionicons name={"person-outline"}
+            size={40}
+          />
+        }
+      }}
+       />
+    </Tab.Navigator>
+  );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        height: 50,
-        borderTopWidth: 1, // optional, if you want a top border like Instagram
-        borderTopColor: '#e2e2e2', // optional, color for the top border
-        justifyContent: "space-evenly",
-        
-    },
-    
-    icon: {
-        height: 40,
-        width: 40,
-        flex: 1,
-    },
-})
+const screenOpt = {
+  tabBarShowLabel: false,
+  tabBarHideOnKeyboard: true,
+  headerShown: false,
+  tabBarStyle: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0,
+    elevation: 0,
+    height: 70
+  }
+}
 
-export default BottomTabs
+export default BottomTab;
