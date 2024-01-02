@@ -16,11 +16,11 @@ const MainNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="HomeTabs" component={BottomTabNavigator} />
       {/*  other screens outside the bottom tabs */}
-      <Stack.Screen name="CareerMonitoring" component={CareerMonitoring} options={{ tabBarButton: () => null, tabBarVisible: false }} />
-      <Stack.Screen name="CareerAssessment" component={CareerAssessment} options={{ tabBarButton: () => null, tabBarVisible: false }} />
-      <Stack.Screen name="AcademicImprovement" component={AcademicImprovement} options={{ tabBarButton: () => null, tabBarVisible: false }} />
-      <Stack.Screen name="ExtracurricularActivities" component={ExtracurricularActivities} options={{ tabBarButton: () => null, tabBarVisible: false }} />
-      <Stack.Screen name="Application" component={Application} options={{ tabBarButton: () => null, tabBarVisible: false }} />
+      <Stack.Screen name="CareerMonitoring" component={CareerMonitoring} />
+      <Stack.Screen name="CareerAssessment" component={CareerAssessment} />
+      <Stack.Screen name="AcademicImprovement" component={AcademicImprovement} />
+      <Stack.Screen name="ExtracurricularActivities" component={ExtracurricularActivities} />
+      <Stack.Screen name="Application" component={Application} />
       {/* ... other screens */}
     </Stack.Navigator>
     
