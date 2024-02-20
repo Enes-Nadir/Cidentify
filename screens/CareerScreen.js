@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, ScrollView, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import Header from '../Components/Home/Header';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,7 +9,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 const CareerScreen = ({ navigation }) => {
   
   return (
+    <ImageBackground 
+        source={require('../assets/Background.jpg')} 
+        style={styles.background}
+      >
     <SafeAreaView style={styles.container}>
+      
       <Header />
       <ScrollView
         contentContainerStyle={styles.contentContainer}
@@ -37,7 +42,7 @@ const CareerScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('AcademicImprovementScreen')}
+          onPress={() => navigation.navigate('AcademicImprovement')}
         >
          <LinearGradient colors={['#667eea', '#764ba2']} style={styles.gradient}>
           <Ionicons name="school-outline" size={24} color="#FFFFFF" />
@@ -47,7 +52,7 @@ const CareerScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('ExtracurricularActivitiesScreen')}
+          onPress={() => navigation.navigate('ExtracurricularActivities')}
         >
           <LinearGradient colors={['#667eea', '#764ba2']} style={styles.gradient}>
           <Ionicons name="football-outline" size={24} color="#FFFFFF" />
@@ -66,14 +71,19 @@ const CareerScreen = ({ navigation }) => {
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white', 
     alignItems: 'center',
+  },
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
   contentContainer: {
     padding: 20,

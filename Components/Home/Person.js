@@ -32,7 +32,6 @@ const PersonProfile = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff', // Background color for the entire screen
     justifyContent: "center", // Align content to the top
     alignItems: 'center',
     padding: 40,

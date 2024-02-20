@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, ScrollView, ImageBackground } from 'react-native'
 import React from 'react'
 import  Header  from '../Components/Home/Header'
 import PersonProfile from '../Components/Home/Person'
@@ -9,12 +9,17 @@ import DashboardComponent from '../Components/Home/Dashboard'
 const HomeScreen = () => {
   return ( 
     <SafeAreaView style={styles.container}>
-    <Header/>
-    <ScrollView>
+    <ImageBackground 
+        source={require('../assets/Background.jpg')} 
+        style={styles.background}
+      >
+      <Header/>
+    <ScrollView contentContainerStyle={styles.scrollView}>
         <PersonProfile/>
         <DashboardComponent />
         </ScrollView>
-        </SafeAreaView>        
+    </ImageBackground>
+        </SafeAreaView>
   )
 }
 
@@ -24,6 +29,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: "flex-start",
+    },
+    background: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
     },
    
 })
